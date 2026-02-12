@@ -11,19 +11,19 @@ spec:
             path: ui_approach/nginx
             namespace: dev
             project: dev-project
-            server: https://cluster1-api-server
+            server: https://172.31.17.79:33893
 
           - app: apache
             path: cli_approach/apache
             namespace: test
             project: test-project
-            server: https://cluster2-api-server
+            server: https://kubernetes.default.svc
 
           - app: chaiapp
             path: chai-app
             namespace: prod
             project: prod-project
-            server: https://cluster3-api-server
+            server: https://kubernetes.default.svc
 
   template:
     metadata:
