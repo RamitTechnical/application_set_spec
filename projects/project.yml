@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-  - '*'
+  - https://github.com/RamitTechnical/application_set.git
   destinations:
   - namespace: dev
     server: '*'
@@ -17,7 +17,7 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-  - '*'
+  - https://github.com/RamitTechnical/application_set.git
   destinations:
   - namespace: prod
     server: '*'
@@ -29,7 +29,7 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-  - '*'
+  - https://github.com/RamitTechnical/application_set.git
   destinations:
   - namespace: test
     server: '*'
