@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo-list
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - app: nginx
+            path: ui_approach/nginx
+            namespace: dev
+            project: dev-project
+            server: https://cluster1-api-server
+
+          - app: online-shop
+            path: multicluster/online-shop
+            namespace: test
+            project: test-project
+            server: https://cluster2-api-server
+
+          - app: chaiapp
+            path: chai-app
+            namespace: prod
+            project: prod-project
+            server: https://cluster3-api-server
+
+  template:
+    metadata:
+      name: '{{app}}-list'
+    spec:
+      project: '{{project}}'
+      source:
+        repoURL: https://github.com/RamitTechnical/application_set.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: '{{server}}'
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
