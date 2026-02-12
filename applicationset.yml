@@ -13,8 +13,8 @@ spec:
             project: dev-project
             server: https://cluster1-api-server
 
-          - app: online-shop
-            path: multicluster/online-shop
+          - app: apache
+            path: cli_approach/apache
             namespace: test
             project: test-project
             server: https://cluster2-api-server
